@@ -41,7 +41,7 @@ public class CourseDAOImpl implements CourseDAO {
     public Course getCourseById(int id) throws SQLException {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement(
-                "SELECT FROM course WHERE id = ?");
+                "SELECT * FROM course WHERE id = ?");
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         Course course = null;

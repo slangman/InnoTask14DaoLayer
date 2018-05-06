@@ -51,8 +51,8 @@
     </role>
     <schema id="11" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-24.17:20:13.326</IntrospectionTimestamp>
-      <IntrospectionStateNumber>690</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-06.11:43:07.516</IntrospectionTimestamp>
+      <IntrospectionStateNumber>708</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -286,7 +286,20 @@ studentid</ColNames>
       <StateNumber>663</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="49" parent="25" name="studentsatcourse_studentid_fkey">
+    <index id="49" parent="25" name="studentsatcourse_pkey">
+      <ObjectId>16942</ObjectId>
+      <ColNames>studentid
+courseid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="25" name="studentsatcourse_pkey">
+      <ObjectId>16943</ObjectId>
+      <ColNames>studentid
+courseid</ColNames>
+      <UnderlyingIndexName>studentsatcourse_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="25" name="studentsatcourse_studentid_fkey">
       <ObjectId>16879</ObjectId>
       <ColNames>studentid</ColNames>
       <RefTableId>16849</RefTableId>
@@ -295,7 +308,7 @@ studentid</ColNames>
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="50" parent="25" name="studentsatcourse_courseid_fkey">
+    <foreign-key id="52" parent="25" name="studentsatcourse_courseid_fkey">
       <ObjectId>16884</ObjectId>
       <ColNames>courseid</ColNames>
       <RefTableId>16862</RefTableId>
@@ -304,7 +317,7 @@ studentid</ColNames>
       <RefKeyName>course_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="51" parent="26" name="id">
+    <column id="53" parent="26" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -313,31 +326,31 @@ studentid</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>task_id_seq</SequenceName>
     </column>
-    <column id="52" parent="26" name="courseid">
+    <column id="54" parent="26" name="courseid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>664</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="53" parent="26" name="description">
+    <column id="55" parent="26" name="description">
       <Position>3</Position>
       <DataType>varchar(1024)|0</DataType>
       <StateNumber>664</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="54" parent="26" name="task_pkey">
+    <index id="56" parent="26" name="task_pkey">
       <ObjectId>16898</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="55" parent="26" name="task_pkey">
+    <key id="57" parent="26" name="task_pkey">
       <ObjectId>16899</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>task_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="56" parent="26" name="task_courseid_fkey">
+    <foreign-key id="58" parent="26" name="task_courseid_fkey">
       <ObjectId>16900</ObjectId>
       <ColNames>courseid</ColNames>
       <RefTableId>16862</RefTableId>
@@ -346,7 +359,7 @@ studentid</ColNames>
       <RefKeyName>course_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="57" parent="27" name="id">
+    <column id="59" parent="27" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -355,51 +368,51 @@ studentid</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>users_id_seq</SequenceName>
     </column>
-    <column id="58" parent="27" name="roleid">
+    <column id="60" parent="27" name="roleid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>660</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="27" name="login">
+    <column id="61" parent="27" name="login">
       <Position>3</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>660</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="27" name="password">
+    <column id="62" parent="27" name="password">
       <Position>4</Position>
       <DataType>varchar(128)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>660</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="27" name="fname">
+    <column id="63" parent="27" name="fname">
       <Position>5</Position>
       <DataType>varchar(128)|0</DataType>
       <StateNumber>660</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="62" parent="27" name="lname">
+    <column id="64" parent="27" name="lname">
       <Position>6</Position>
       <DataType>varchar(128)|0</DataType>
       <StateNumber>660</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="63" parent="27" name="user_pkey">
+    <index id="65" parent="27" name="user_pkey">
       <ObjectId>16853</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="64" parent="27" name="user_pkey">
+    <key id="66" parent="27" name="user_pkey">
       <ObjectId>16854</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="65" parent="27" name="users_roleid_fkey">
+    <foreign-key id="67" parent="27" name="users_roleid_fkey">
       <ObjectId>16855</ObjectId>
       <ColNames>roleid</ColNames>
       <RefTableId>16841</RefTableId>

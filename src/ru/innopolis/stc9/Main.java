@@ -1,12 +1,14 @@
 package ru.innopolis.stc9;
 
 import ru.innopolis.stc9.dao.CourseDAOImpl;
+import ru.innopolis.stc9.dao.StudentDAO;
 import ru.innopolis.stc9.dao.UserDAOImpl;
 import ru.innopolis.stc9.pojo.Course;
 import ru.innopolis.stc9.pojo.Student;
 import ru.innopolis.stc9.pojo.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -14,6 +16,7 @@ public class Main {
         CourseDAOImpl cdi = new CourseDAOImpl();
         cdi.addCourse(course);*/
 
+        /*
         UserDAOImpl userDao = new UserDAOImpl();
 
         User user = userDao.getUser(2);
@@ -26,6 +29,15 @@ public class Main {
         vasyaPupkin.setLastName("Pupkin");
 
         userDao.addUser(vasyaPupkin);
+        */
+
+        StudentDAO studentDAO = new StudentDAO(3);
+        ArrayList<Course> courses = (ArrayList)studentDAO.getCourses();
+        for (Course course : courses) {
+            System.out.println(course.getName());
+        }
+
+
     }
 
 
