@@ -39,6 +39,7 @@ public class StudentDAO extends UserDAOImpl {
         return result;
     }
 
+    //Добавить таскам имя (поля "описание" недостаточно).
     public Map<String, Integer> getGradesByCourse(int courseId) throws SQLException {
         Connection connection = connectionManager.getConnection();
         Map<String, Integer> result = new HashMap<>();
@@ -57,5 +58,49 @@ public class StudentDAO extends UserDAOImpl {
             result.put(description, value);
         }
         return result;
+    }
+
+    public int getGradeByTask(int taskId) throws SQLException {
+        int result = -1;
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement(
+            "SELECT value FROM grade WHERE studentid = ? AND taskid = ?"
+        );
+        statement.setInt(1, id);
+        statement.setInt(2, taskId);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            result = resultSet.getInt("value");
+        }
+        return result;
+    }
+
+    public float getAverageGradeBuCourse(int courseId) throws SQLException {
+        float result = -1;
+        Map <String, Integer> grades = getGradesByCourse(courseId);
+        if (grades!=null && grades.size()>0) {
+            int sum=0;
+            for (Map.Entry<String, Integer> entry : grades.entrySet()) {
+                int gradeValue = entry.getValue();
+                sum += gradeValue;
+            }
+            result = sum/grades.size();
+        }
+        return result;
+    }
+
+    public boolean checkStudentOnCourse(int courseId) throws SQLException {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement(
+                "SELECT * FROM studentsatcourse WHERE courseid = ? AND studentid = ?"
+        );
+        statement.setInt(1, courseId);
+        statement.setInt(2, id);
+        ResultSet resultSet = statement.executeQuery();
+        connection.close();
+        if (resultSet.next()) {
+            return true;
+        }
+        return false;
     }
 }
